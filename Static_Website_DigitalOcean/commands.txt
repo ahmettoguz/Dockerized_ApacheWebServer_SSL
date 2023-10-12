@@ -1,0 +1,19 @@
+
+# CHANGE CWD
+    cd .\Static_Website_DigitalOcean\
+
+# BUILD IMAGE
+    docker build -t  static-php-image .
+
+# RUN CONTAINER
+    docker run -d --rm -p 3000:80    --env-file ./.env --name static-php-container static-php-image
+
+# DISPLAY CONTAINERS
+    docker ps -a
+
+# STOP AND DELETE CONTAINER
+    docker stop static-php-container
+
+# DELETE IMAGE
+    docker rmi static-php-image
+    
