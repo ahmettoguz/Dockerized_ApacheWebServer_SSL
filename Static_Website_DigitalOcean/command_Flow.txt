@@ -1,0 +1,67 @@
+
+-------------------------
+
+# OPEN DIGITAL OCEN DROPLET
+
+# GET UPDATES
+    $ sudo apt-get update
+
+# UPGRADE PACKAGES
+    $ sudo apt-get update
+
+# INSTALL DOCKER
+    $ snap install docker
+
+# INSTALL DOCTL
+    to be able to enable firewall settings
+    $ snap install doctl
+
+-------------------------
+
+# PREPARE FIREWALL AND DOCTL FOLDER
+    this step is required to enable authentication for doctl
+    $ mkdir ~/.config
+    $ export XDG_CONFIG_HOME=~/.config
+
+# CONNECT DIGITAL OCEAN ACCOUNT
+    $ doctl auth init
+    it will ask token about digital ocean api and give link to create that token.
+    create token with write access
+    give it to console (may require refresh)
+
+# ADD FIREWALL RULE
+    display rules
+    $ doctl compute firewall list
+
+    add rule
+    $ doctl compute firewall create --name MyFirewall --inbound-rules "protocol:tcp,ports:3000,address:0.0.0.0/0"
+
+-------------------------
+
+# CLONE CODE
+    $ git clone https://github.com/ahmettoguz/Dockerized_Php_MySql.git
+
+# CHANGE CWD
+    $ cd ./Dockerized_Php_MySql/Static_Website_DigitalOcean/
+    
+# BUILD IMAGE
+    $ docker build -t  static-php-image .
+
+# RUN CONTAINER
+                            out:in
+    $ docker run -d --rm -p 3000:80 --env-file ./.env --name static-php-container static-php-image
+
+# GET IP 
+    first one is the ipv4:
+    $ hostname -I
+
+# OPEN IN BROWSER
+    <ip>:3000
+
+--------------------------
+
+# STOP AND DELETE CONTAINER
+    $ docker stop static-php-container
+
+# DELETE IMAGE
+    $ docker rmi static-php-image
