@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+    php:
+        build: ./php
+        container_name: php-container
+        env_file:
+            - ./env/php.env
+        ports:
+            - "3000:80"
+    #    volumes:
+    #    - data:data/db
+
+# frontend:
+#    image: 'mongo'
+#    build: ./frontend
+#    depends_on:
+#    - mongodbBenimKoyduğumİsim
+#    ports: 
+#    - '3000:3000'
+#    volumes:
+#    -  data:data/db
+#    stdin_open: true
+#    tty: true
+#
+# volumes: 
+#    data:
+#    logs:
