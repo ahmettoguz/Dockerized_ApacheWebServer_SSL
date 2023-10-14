@@ -42,7 +42,7 @@
     $ git clone https://github.com/ahmettoguz/Dockerized_Php_MySql.git
 
 # CHANGE CWD
-    $ cd ./Dockerized_Php_MySql/Static_Website_DigitalOcean/
+    $ cd ./Dockerized_Php_MySql/Static_Php_Apache_DigitalOcean/
     
 # BUILD IMAGE
     $ docker build -t  static-php-image .
