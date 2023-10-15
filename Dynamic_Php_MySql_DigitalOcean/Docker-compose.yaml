@@ -1,14 +1,22 @@
 version: "3.8"
 services:
-    php:
+    php-app:
         build: ./php
-        container_name: php-container
+        container_name: php-c
         env_file:
             - ./env/php.env
-        ports:
-            - "3000:80"
+        ports: 
+            - '80:80'
     #    volumes:
     #    - data:data/db
+
+    ubuntu-util:
+        build: ./ubuntu_util
+        container_name: util-c
+        stdin_open: true
+        tty: true
+        volumes:
+            - db-v:/db-v
 
 # frontend:
 #    image: 'mongo'
@@ -22,6 +30,7 @@ services:
 #    stdin_open: true
 #    tty: true
 #
-# volumes: 
-#    data:
-#    logs:
+volumes: 
+   db-v:
+#    db-v:
+

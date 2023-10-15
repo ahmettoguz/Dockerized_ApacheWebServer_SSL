@@ -1,0 +1,52 @@
+# BUILD IMAGE
+  docker-compose build
+
+# UP CONTAINERS
+  docker-compose up
+
+  detach mode:
+  docker-compose up -d
+
+# BUILD IMAGE AND UP CONTAINER (kod değişikliğinde böyle kaldır)
+  docker-compose up -d --build
+
+# DOWN & DELETE CONTAINERS (volumes are safe)
+  docker-compose down
+
+# DISPLAY CONTAINERS
+  docker ps -a
+
+# COPY FROM LOCAL 
+  docker cp ./nginx/default.conf nginx-container:/
+
+# COPY FROM CONTAINER
+  docker cp util-c: /a.txt ./
+
+# GET INTO CONTAINER
+  docker exec -it php-c /bin/bash
+  docker exec -it util-c /bin/bash
+
+# MOVE FILE
+  mv default.conf ./etc/nginx/conf.d/   
+  mv default.conf ./etc/nginx/sites-available/
+
+------------------------VOLUME------------------------
+
+# SHOW 
+  docker volume ls
+
+# CREATE
+  docker volume create db-v
+
+# MOVE
+  docker cp example.txt my_container:/app/data
+
+# REMOVE
+  docker volume rm db-v
+  docker volume prune
+
+
+    
+
+
+
