@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap Css-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Css end-->
+
+    <!-- Bootstrap Icons-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <!-- Bootstrap Icons end-->
+
+    <!-- Jquery  -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.4.min.js"
+      integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+      crossorigin="anonymous"
+    ></script>
+    <!-- Jquery end -->
+
+    <!-- Bootstrap Js -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Bootstrap Js -->
+
+    <title>Main</title>
+  </head>
+
+  <body></body>
+</html>
+
+<script>
+  // const API_URL = "http://localhost/AhmetOguzErgin/Web/Php_API_Template/index.php";
+  const API_URL = "./index.php";
+
+  // Opertaions ----------------------------------------
+  // update_User();
+  // create_User();
+  // read_Specific();
+  read_All();
+  // delete_User();
+  // login();
+  // log_Out();
+  // Opertaions End ----------------------------------------
+
+  // Functions ----------------------------------------
+  // Create
+  function create_User() {
+    let email = "NewUser@hotmail.com";
+    let password = "User4321!";
+    let name = "New";
+    let surname = "User";
+
+    let data = {
+      opt: "create_User",
+      email: email,
+      password: password,
+      name: name,
+      surname: surname,
+    };
+
+    $.ajax({
+      type: "POST",
+      url: API_URL,
+      async: false,
+      cache: false,
+      data: data,
+      success: function (data) {
+        if (data === false) console.log("cannot add");
+        else {
+          console.log("added successfully with id", data);
+        }
+      },
+
+      beforeSend: function () {
+        // console.log("loading...");
+      },
+
+      error: function (xhr, status, error) {
+        console.log("Error in ajax request : " + error);
+      },
+    });
+  }
+
+  // Read
+  function read_All() {
+    let data = { opt: "read_All" };
+
+    $.ajax({
+      type: "GET",
+      url: API_URL,
+      async: false,
+      cache: false,
+      data: data,
+      success: function (data) {
+        console.log(data);
+      },
+
+      beforeSend: function () {
+        // console.log("loading...");
+      },
+
+      error: function (xhr, status, error) {
+        console.log("Error in ajax request : " + error);
+      },
+    });
+  }
+
+  function read_Specific() {
+    let data = { opt: "read_Specific", id: 1 };
+
+    $.ajax({
+      type: "GET",
+      url: API_URL,
+      async: false,
+      cache: false,
+      data: data,
+      success: function (data) {
+        console.log(data);
+      },
+
+      beforeSend: function () {
+        // console.log("loading...");
+      },
+
+      error: function (xhr, status, error) {
+        console.log("Error in ajax request : " + error);
+      },
+    });
+  }
+
+  // Delete
+  function delete_User() {
+    let data = { opt: "delete_User", id: 6 };
+
+    $.ajax({
+      type: "GET",
+      url: API_URL,
+      async: false,
+      cache: false,
+      data: data,
+      success: function (data) {
+        if (data) {
+          console.log("deleted successfully.");
+        } else {
+          console.log("cannot deleted.");
+        }
+      },
+
+      beforeSend: function () {
+        // console.log("loading...");
+      },
+
+      error: function (xhr, status, error) {
+        console.log("Error in ajax request : " + error);
+      },
+    });
+  }
+
+  // Update
+  function update_User() {
+    let id = 5;
+    let email = "UpdatedEmial@hotmail.com";
+    let password = "User4321!";
+    let name = "Updated";
+    let surname = "User";
+
+    let data = {
+      opt: "update_User",
+      id: id,
+      email: email,
+      password: password,
+      name: name,
+      surname: surname,
+    };
+
+    $.ajax({
+      type: "POST",
+      url: API_URL,
+      async: false,
+      cache: false,
+      data: data,
+      success: function (data) {
+        if (data) {
+          console.log("updated successfully");
+        } else {
+          console.log("cannot updated", data);
+        }
+      },
+      beforeSend: function () {
+        // console.log("loading...");
+      },
+
+      error: function (xhr, status, error) {
+        console.log("Error in ajax request : " + error);
+      },
+    });
+  }
+
+  // Session
+  function login() {
+    let email = "ahmet@hotmail.com";
+    let password = "User4321!";
+    let remember = false;
+
+    let data = {
+      opt: "login",
+      email: email,
+      password: password,
+      remember: remember,
+    };
+
+    $.post(API_URL, data).then(function (data) {
+      if (data) {
+        console.log("Success - Login");
+      } else {
+        console.log("Error   - Login");
+      }
+    });
+  }
+
+  function log_Out() {
+    let data = { opt: "log_Out" };
+
+    $.ajax({
+      type: "GET",
+      url: API_URL,
+      async: false,
+      cache: false,
+      data: data,
+      success: function (data) {
+        if (data) {
+          console.log("Success - Logout");
+        } else {
+          console.log("Error   - Logout");
+        }
+      },
+
+      beforeSend: function () {
+        // console.log("loading...");
+      },
+
+      error: function (xhr, status, error) {
+        console.log("Error in ajax request : " + error);
+      },
+    });
+  }
+
+  // Functions End ----------------------------------------
+</script>

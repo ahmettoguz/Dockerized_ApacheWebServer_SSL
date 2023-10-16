@@ -1,42 +1,45 @@
 version: "3.8"
 services:
-    db:
-        image: mysql
-        container_name: db-c
-        volumes:
-            - db-v:/var/lib/mysql
-        restart: always
-        env_file:
-            - ./env/db.env
-    
-    phpmyadmin:
-        image: phpmyadmin
-        restart: always
-        depends_on:
-            - db
-        ports:
-        - 8081:80
-        env_file:
-            - ./env/admin.env
+  db:
+    image: mysql
+    container_name: db-c
+    volumes:
+      - db-v:/var/lib/mysql
+    restart: always
+    env_file:
+      - ./env/db.env
 
-    php-app:
-        build:
-            context: ./php/
-            dockerfile: ./docker/Dockerfile
-        container_name: php-c
-        env_file:
-            - ./env/php.env
-        ports: 
-            - '80:80'
-            
-    ubuntu-util:
-        build: ./ubuntu_util
-        container_name: util-c
-        stdin_open: true
-        tty: true
-        volumes:
-            - db-v:/db-v
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - 8081:80
+    env_file:
+     - ./env/db.env
 
-volumes: 
-   db-v:
+  php-app:
+    build:
+      context: ./php/
+      dockerfile: ./docker/Dockerfile
+    container_name: php-c
+    env_file:
+      - ./env/php.env
+      - ./env/db.env
+    volumes:
+      # bind mount
+      - ./php/:/var/www/html/
+    ports:
+      - "80:80"
 
+  ubuntu-util:
+    build: ./ubuntu_util
+    container_name: util-c
+    stdin_open: true
+    tty: true
+    volumes:
+      - db-v:/db-v
+
+volumes:
+  db-v:

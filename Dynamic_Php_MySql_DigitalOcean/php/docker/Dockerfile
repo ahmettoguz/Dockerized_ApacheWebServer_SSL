@@ -1,9 +1,9 @@
 #Dockerfile
 FROM  php:8.0-apache
 
-COPY . /var/www/html/
+RUN docker-php-ext-install pdo_mysql
 
-ENV MY_NAME="Default Name"
+COPY . /var/www/html/
 
 EXPOSE 80
 
