@@ -1,5 +1,24 @@
 version: "3.8"
 services:
+    db:
+        image: mysql
+        container_name: db-c
+        volumes:
+            - db-v:/var/lib/mysql
+        restart: always
+        env_file:
+            - ./env/db.env
+    
+    phpmyadmin:
+        image: phpmyadmin
+        restart: always
+        depends_on:
+            - db
+        ports:
+        - 8081:80
+        env_file:
+            - ./env/admin.env
+
     php-app:
         build: ./php
         container_name: php-c
@@ -7,9 +26,7 @@ services:
             - ./env/php.env
         ports: 
             - '80:80'
-    #    volumes:
-    #    - data:data/db
-
+            
     ubuntu-util:
         build: ./ubuntu_util
         container_name: util-c
