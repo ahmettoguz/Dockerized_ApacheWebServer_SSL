@@ -8,3 +8,6 @@ ENV MY_NAME="Default Name"
 EXPOSE 80
 
 CMD ["apache2-foreground"]
+
+
+

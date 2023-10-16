@@ -15,10 +15,13 @@
     docker images -a
 
 # STOP AND DELETE CONTAINER
-    docker stop static-php-container
+    docker stop php-c
 
 # DELETE IMAGE
-    docker rmi static-php-image
+    docker rmi php-c
+
+# GO INSIDE CONTAINER
+    docker exec -it php-c /bin/bash
     
 
 ###########################

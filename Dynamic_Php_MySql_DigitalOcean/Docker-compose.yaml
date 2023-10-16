@@ -20,7 +20,9 @@ services:
             - ./env/admin.env
 
     php-app:
-        build: ./php
+        build:
+            context: ./php/
+            dockerfile: ./docker/Dockerfile
         container_name: php-c
         env_file:
             - ./env/php.env
@@ -35,19 +37,6 @@ services:
         volumes:
             - db-v:/db-v
 
-# frontend:
-#    image: 'mongo'
-#    build: ./frontend
-#    depends_on:
-#    - mongodbBenimKoyduğumİsim
-#    ports: 
-#    - '3000:3000'
-#    volumes:
-#    -  data:data/db
-#    stdin_open: true
-#    tty: true
-#
 volumes: 
    db-v:
-#    db-v:
 
