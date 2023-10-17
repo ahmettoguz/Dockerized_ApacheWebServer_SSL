@@ -11,6 +11,7 @@ services:
 
   phpmyadmin:
     image: phpmyadmin
+    container_name: admin-c
     depends_on:
       - db
     ports:
