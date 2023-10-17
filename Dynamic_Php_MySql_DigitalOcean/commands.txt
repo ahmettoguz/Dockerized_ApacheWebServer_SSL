@@ -42,7 +42,7 @@
   docker cp example.txt my_container:/app/data
 
 # REMOVE
-  docker volume rm db-v
+  docker volume rm dynamic_php_mysql_digitalocean_db-v
   docker volume prune
 
 
