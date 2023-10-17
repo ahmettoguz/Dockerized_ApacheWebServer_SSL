@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . "/../database/DatabaseConnection.php";
 session_start();
+require_once __DIR__ . "/../database/DatabaseConnection.php";
 
 // CREATE -------------------------------------------------------------------------------------------------------------------
 function create_User($email, $password, $name, $surname)

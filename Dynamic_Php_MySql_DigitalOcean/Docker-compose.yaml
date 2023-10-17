@@ -11,7 +11,6 @@ services:
 
   phpmyadmin:
     image: phpmyadmin
-    restart: always
     depends_on:
       - db
     ports:
@@ -33,13 +32,13 @@ services:
     ports:
       - "80:80"
 
-  ubuntu-util:
-    build: ./ubuntu_util
-    container_name: util-c
-    stdin_open: true
-    tty: true
-    volumes:
-      - db-v:/db-v
+  # ubuntu-util:
+  #   build: ./ubuntu_util
+  #   container_name: util-c
+  #   stdin_open: true
+  #   tty: true
+  #   volumes:
+  #     - db-v:/db-v
 
 volumes:
   db-v:

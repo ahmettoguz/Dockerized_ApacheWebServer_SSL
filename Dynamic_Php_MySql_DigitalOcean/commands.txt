@@ -36,7 +36,7 @@
   docker volume ls
 
 # CREATE
-  docker volume create db-v
+  docker volume create dynamic_php_mysql_digitalocean_db-v
 
 # MOVE
   docker cp example.txt my_container:/app/data
