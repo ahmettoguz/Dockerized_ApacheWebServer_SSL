@@ -1,5 +1,8 @@
 FROM php:8.2-apache
 
+# Enable Apache module using Apache configuration
+RUN a2enmod rewrite
+
 # İlgili modülleri ve ayarları etkinleştirin
 RUN docker-php-ext-install pdo_mysql && docker-php-ext-install mysqli && docker-php-ext-enable mysqli
 
