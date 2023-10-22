@@ -20,8 +20,10 @@ COPY ./apache/000-default.conf /etc/apache2/sites-available/000-default.conf
 EXPOSE 80
 EXPOSE 443
 
-RUN a2enmod ssl
-RUN a2ensite 000-default.conf
+# RUN ln -s /etc/apache2/mods-available/ssl.load  /etc/apache2/mods-enabled/ssl.load
+RUN a2enmod rewrite
+RUN a2enmod mime
+RUN a2ensite 000-default
 RUN service apache2 restart
 
 CMD ["apache2-foreground"]
