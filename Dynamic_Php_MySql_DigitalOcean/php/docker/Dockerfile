@@ -16,7 +16,7 @@ COPY . /var/www/html/
 RUN touch /usr/local/etc/php/php.ini
 RUN echo "session.save_path=\"/tmp\"" >> /usr/local/etc/php/php.ini
 
-# Enable the 000-default.conf site
+# Enable the 000-default.conf site 
 RUN a2ensite 000-default
 
 EXPOSE 80
