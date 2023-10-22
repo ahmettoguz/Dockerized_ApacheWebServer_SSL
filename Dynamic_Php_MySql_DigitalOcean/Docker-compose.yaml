@@ -32,7 +32,6 @@ services:
       - ./php/:/var/www/html/
     ports:
       - "80:80"
-      - "443:443"
 
   # ubuntu-util:
   #   build: ./ubuntu_util
