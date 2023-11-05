@@ -1,7 +1,7 @@
-version: "3.3"
+version: "3.8"
 services:
   db:
-    image: mysql
+    image: bitnami/mysql
     container_name: db-c
     volumes:
       - db-v:/var/lib/mysql
@@ -17,14 +17,14 @@ services:
     ports:
       - 8081:80
     env_file:
-      - ./env/db.env
+     - ./env/db.env
 
   php-app:
     build:
       context: ./php/
       dockerfile: ./docker/Dockerfile
     container_name: php-c
-    depends_on:
+depends_on:
       - db
     env_file:
       - ./env/php.env
@@ -35,7 +35,7 @@ services:
     ports:
       - "80:80"
 
-  # ubuntu-util:
+# ubuntu-util:
   #   build: ./ubuntu_util
   #   container_name: util-c
   #   stdin_open: true

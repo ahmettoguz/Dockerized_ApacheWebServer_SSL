@@ -12,5 +12,5 @@ try {
     $db = new PDO($dsn, $user, $pass);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (Exception $ex) {
-    die("Database Connection Error !!!\n". $ex);
+    die("Database Connection Error !!!\n" . $ex);
 }
