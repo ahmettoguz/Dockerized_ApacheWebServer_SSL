@@ -8,7 +8,7 @@ volumes:
 
 services:
   db:
-    image: bitnami/mysql
+    image: mysql
     container_name: db-c
     volumes:
       - db-v:/var/lib/mysql
@@ -42,7 +42,7 @@ services:
       - ./env/db.env
     volumes:
       # bind mount
-      - ./php/:/var/www/html/
+      - ./php/:/var/www/html/api
     ports:
       - "80:80"
     networks:
