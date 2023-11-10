@@ -4,7 +4,7 @@ FROM php:8.2-apache
 RUN docker-php-ext-install pdo_mysql && docker-php-ext-install mysqli && docker-php-ext-enable mysqli
 
 # Ana uygulamayı /var/www/html/api klasörüne kopyalayın
-COPY . /var/www/html/api
+COPY . /var/www/html/soci.us.to
 
 # PHP ayarları yapın
 RUN touch /usr/local/etc/php/php.ini

@@ -7,7 +7,7 @@
     $ sudo apt-get update
 
 # UPGRADE PACKAGES
-    $ sudo apt-get update
+    $ sudo apt-get upgrade
 
 # INSTALL DOCKER
     $ snap install docker
