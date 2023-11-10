@@ -7,7 +7,7 @@ RUN docker-php-ext-install pdo_mysql && docker-php-ext-install mysqli && docker-
 COPY . /var/www/soci.us.to
 
 # Copy your Apache configuration file into the image
-COPY . /etc/apache2/sites-available/soci.us.to.conf
+COPY /conf/soci.us.to.conf /etc/apache2/sites-available/soci.us.to.conf
 
 # PHP ayarları yapın
 RUN touch /usr/local/etc/php/php.ini
