@@ -42,7 +42,7 @@ services:
       - ./env/db.env
     volumes:
       # bind mount
-      - ./php/:/var/www/html/soci.us.to
+      - ./php/:/var/www/soci.us.to
     ports:
       - "80:80"
     networks:
