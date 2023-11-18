@@ -7,10 +7,12 @@
     $ sudo apt-get update
 
 # UPGRADE PACKAGES
-    $ sudo apt-get update
+    $ sudo apt-get upgrade
 
 # INSTALL DOCKER
     $ snap install docker
+    $ apt install docker
+    $ apt install docker.io
 
 # INSTALL DOCTL
     to be able to enable firewall settings
