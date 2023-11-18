@@ -54,7 +54,7 @@
 
 # RUN CONTAINER
                             out:in
-    $ docker run -d --rm -p 3000:80 --env-file ./env/.env --name static-php-container static-php-image
+    $ docker run -d --rm -p 80:80 --env-file ./src/env/.env --name static-php-container static-php-image
 
 # GET IP 
     first one is the ipv4:
@@ -78,6 +78,3 @@
     or
     $ docker rmi $(docker images -q)
     $ docker rmi $(docker images -f "dangling=true" -q)
-
-
-
