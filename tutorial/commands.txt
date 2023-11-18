@@ -15,7 +15,7 @@
     docker images -a
 
 # GET INTO CONTAINER
-    docker exec -it php-container /bin/bash
+    docker exec -it static-php-container /bin/bash
 
 # STOP AND DELETE CONTAINER
     docker stop static-php-container
