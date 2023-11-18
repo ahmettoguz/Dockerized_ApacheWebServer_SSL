@@ -40,6 +40,7 @@
 
     add rule
     $ doctl compute firewall create --name MyFirewall --inbound-rules "protocol:tcp,ports:3000,address:0.0.0.0/0"
+    $ doctl compute firewall create --name portfft --inbound-rules "protocol:tcp,ports:443,address:0.0.0.0/0"
 
 -------------------------
 
