@@ -13,7 +13,7 @@
     docker build -t static-php-image .
 
 # RUN CONTAINER
-    docker run -d --rm -p 80:80 --env-file ./src/env/.env --name static-php-container static-php-image
+    docker run -d --rm -p 80:80 -p 443:443 --env-file ./src/env/.env --name static-php-container static-php-image
 
 # GET INTO CONTAINER
     docker exec -it static-php-container /bin/bash
