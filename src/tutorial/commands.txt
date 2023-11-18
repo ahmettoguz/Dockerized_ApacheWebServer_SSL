@@ -2,11 +2,6 @@
 # CHANGE CWD
     cd .\Static_Website_DigitalOcean\
 
-# BUILD IMAGE
-    docker build -t  static-php-image .
-
-# RUN CONTAINER
-    docker run -d --rm -p 3000:80 --env-file ./src/env/.env --name static-php-container static-php-image
 
 # DISPLAY CONTAINERS
     docker ps -a
@@ -14,15 +9,30 @@
 # DISPLAY IMAGES
     docker images -a
 
+# BUILD IMAGE
+    docker build -t static-php-image .
+
+# RUN CONTAINER
+    docker run -d --rm -p 80:80 --env-file ./src/env/.env --name static-php-container static-php-image
+
 # GET INTO CONTAINER
     docker exec -it static-php-container /bin/bash
 
+    cd /etc/apache2/sites-available/
+    
 # STOP AND DELETE CONTAINER
-    docker stop static-php-container
+    $ docker stop static-php-container
+
+    or, stop and remove all 
+    $ docker stop $(docker ps -aq)
+    $ docker rm $(docker ps -aq)
 
 # DELETE IMAGE
-    docker rmi static-php-image
-    
+    $ docker rmi static-php-image
+
+    or
+    $ docker rmi $(docker images -q)
+    $ docker rmi $(docker images -f "dangling=true" -q)
 
 ###########################
 
@@ -31,3 +41,6 @@ RUN apt-get update && apt-get install -y \
     curl \
     zip \
     unzip\
+
+###########################
+

@@ -1,2 +1,4 @@
 src/*
-!src/.env
+
+# no need to add env file to host
+!src/env/.env
