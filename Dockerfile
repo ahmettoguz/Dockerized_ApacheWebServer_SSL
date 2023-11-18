@@ -2,7 +2,7 @@
 FROM  php:8.0-apache
 
 RUN apt-get update && \
-    apt-get install -y certbot python3-certbot-apache
+    apt-get install -y certbot
 
 COPY . /var/www/html/static_Php
 
