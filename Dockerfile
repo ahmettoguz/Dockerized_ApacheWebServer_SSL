@@ -6,6 +6,9 @@ RUN apt-get update && \
     apt-get install -y certbot python3-certbot-apache && \
     rm -rf /var/lib/apt/lists/*
 
+# Enable SSL module for Apache
+RUN a2enmod ssl
+
 COPY . /var/www/html/static_Php
 
 COPY ./src/domain_Conf/soci.us.to.conf /etc/apache2/sites-available/soci.us.to.conf
