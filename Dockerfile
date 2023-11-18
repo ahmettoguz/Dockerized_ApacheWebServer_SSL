@@ -9,4 +9,5 @@ COPY ./src/domain_Conf/soci.us.to.conf /etc/apache2/sites-available/soci.us.to.c
 
 EXPOSE 80
 
+RUN a2ensite soci.us.to.conf
 CMD ["apache2-foreground"]
