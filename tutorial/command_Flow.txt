@@ -3,6 +3,9 @@
 
 # OPEN DIGITAL OCEN DROPLET
 
+# CONNECT REMOTE
+    $ ssh root@<remote ip>
+
 # GET UPDATES
     $ sudo apt-get update
 
@@ -41,29 +44,38 @@
 -------------------------
 
 # CLONE CODE
-    $ git clone https://github.com/ahmettoguz/Dockerized_Php_MySql.git
+    $ git clone https://github.com/ahmettoguz/Dockerized_Apache_Php_Static.git
 
 # CHANGE CWD
-    $ cd ./Dockerized_Php_MySql/Static_Php_Apache_DigitalOcean/
+    $ cd Dockerized_Apache_Php_Static/
     
 # BUILD IMAGE
     $ docker build -t  static-php-image .
 
 # RUN CONTAINER
                             out:in
-    $ docker run -d --rm -p 3000:80 --env-file ./.env --name static-php-container static-php-image
+    $ docker run -d --rm -p 3000:80 --env-file ./env/.env --name static-php-container static-php-image
 
 # GET IP 
     first one is the ipv4:
     $ hostname -I
 
 # OPEN IN BROWSER
-    <ip>:3000
+    <ip>:3000/static_Php
 
 --------------------------
 
 # STOP AND DELETE CONTAINER
     $ docker stop static-php-container
 
+    or, stop and remove all 
+    $ docker stop $(docker ps -aq)
+    $ docker rm $(docker ps -aq)
+
 # DELETE IMAGE
     $ docker rmi static-php-image
+
+    or
+    $ docker rmi $(docker images -q)
+
+
