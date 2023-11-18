@@ -19,7 +19,7 @@ EXPOSE 443
 RUN a2ensite soci.us.to.conf
 
 # Automate SSL certificate renewal
-RUN echo "0 0 * * * certbot renew --quiet" | crontab -
+# RUN echo "0 0 * * * certbot renew --quiet" | crontab -
 
 # Start Apache in the foreground
 CMD ["apache2-foreground"]
