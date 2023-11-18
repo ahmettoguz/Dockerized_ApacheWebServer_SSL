@@ -10,12 +10,13 @@
     docker images -a
 
 # BUILD IMAGE
-    docker build -t static-php-image .
 
 # RUN CONTAINER
-    docker run -d --rm -p 80:80 --env-file ./src/env/.env --name static-php-container static-php-image
 
 # GET INTO CONTAINER
+
+    docker build -t static-php-image .
+    docker run -d --rm -p 80:80 --env-file ./src/env/.env --name static-php-container static-php-image
     docker exec -it static-php-container /bin/bash
 
     cd /etc/apache2/sites-available/
