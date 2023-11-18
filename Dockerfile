@@ -1,5 +1,4 @@
-#Dockerfile
-FROM  php:8.0-apache
+FROM php:8.0-apache
 
 # Install Certbot and its Apache plugin
 RUN apt-get update && \
@@ -16,5 +15,11 @@ COPY ./src/domain_Conf/soci.us.to.conf /etc/apache2/sites-available/soci.us.to.c
 EXPOSE 80
 EXPOSE 443
 
-# RUN a2ensite soci.us.to.conf
+# Enable the virtual host
+RUN a2ensite soci.us.to.conf
+
+# Automate SSL certificate renewal
+RUN echo "0 0 * * * certbot renew --quiet" | crontab -
+
+# Start Apache in the foreground
 CMD ["apache2-foreground"]
