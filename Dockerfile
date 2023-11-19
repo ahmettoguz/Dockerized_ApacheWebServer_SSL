@@ -7,8 +7,8 @@ FROM php:8.0-apache
 #     apt-get clean && \
 #     rm -rf /var/lib/apt/lists/*
 
-# # Enable SSL module for Apache
-# RUN a2enmod ssl
+# Enable SSL module for Apache
+RUN a2enmod ssl
 
 # Copy the PHP application to the container
 COPY . /var/www/html/static_Php
