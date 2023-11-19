@@ -9,7 +9,7 @@ RUN apt-get update && \
     apt-get install -y certbot python3-certbot-apache libnss3-tools apt-utils
 
 # Install mkcert
-RUN wget -O /usr/local/bin/mkcert https://github.com/FiloSottile/mkcert/releases/download/v1.4.3/mkcert-v1.4.3-linux-amd64 && \
+RUN curl -L -o /usr/local/bin/mkcert https://github.com/FiloSottile/mkcert/releases/download/v1.4.3/mkcert-v1.4.3-linux-amd64 && \
     chmod +x /usr/local/bin/mkcert
 
 # Enable SSL module for Apache
