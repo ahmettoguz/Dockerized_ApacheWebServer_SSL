@@ -18,14 +18,14 @@ RUN a2enmod ssl
 COPY . /var/www/html/static_Php
 
 # Copy the Apache configuration file
-COPY ./src/domain_Conf/soci.us.to.conf /etc/apache2/sites-available/soci.us.to.conf
+COPY ./src/domain_Conf/dockerizedapache.us.to.conf /etc/apache2/sites-available/dockerizedapache.us.to.conf
 
 # Expose ports 80 and 443
 EXPOSE 80
 EXPOSE 443
 
 # Enable the site configuration
-RUN a2ensite soci.us.to.conf
+RUN a2ensite dockerizedapache.us.to.conf
 
 # Set the default command to start Apache
 CMD ["apache2-foreground"]
