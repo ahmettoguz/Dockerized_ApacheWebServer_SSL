@@ -37,6 +37,7 @@ In this project, the Apache Webserver is configured with a self-signed SSL certi
 
 * Isolated docker environment
 * Ready to use openssl certificate
+* Url redirection from http port to https
   
 <br/>
 
