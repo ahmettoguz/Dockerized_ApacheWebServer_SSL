@@ -1,7 +1,7 @@
 <h1 align="center">Dockerized Apache Web Server <br/> Self Signed SSL</h1> <br>
 
 <div align="center">
-    <img width=500 src="src/img/banner2.jpg">
+    <img width=250 src="src/img/banner2.jpg">
 </div>
 
 <br/>
