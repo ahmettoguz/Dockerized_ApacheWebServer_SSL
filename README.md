@@ -23,13 +23,13 @@ In this project, the Apache Webserver is configured with a self-signed SSL certi
 
 ## Technologies
 
-![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+[![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
 
-![Openssl](https://img.shields.io/badge/OpenSSL-%23FFFFFF.svg?style=for-the-badge&logo=opengl)
+[![Openssl](https://img.shields.io/badge/OpenSSL-%23FFFFFF.svg?style=for-the-badge&logo=opengl)](https://www.openssl.org/)
 
-![Apache](https://img.shields.io/badge/apache-%23D42029.svg?style=for-the-badge&logo=apache&logoColor=white)
+[![Apache](https://img.shields.io/badge/apache-%23D42029.svg?style=for-the-badge&logo=apache&logoColor=white)](https://httpd.apache.org/)
 
-![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white)
+[![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white)](https://www.php.net/)
 
 <br/>
 
